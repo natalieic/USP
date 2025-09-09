@@ -1,0 +1,6 @@
+[submodule "projeto2/Sets"]
+	path = projeto2/Sets
+	url = git@github.com:carol-akimi/Sets.git
+[submodule "projeto1/Caixeiro"]
+	path = projeto1/Caixeiro
+	url = git@github.com:Petroncini/Caixeiro.git

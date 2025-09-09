@@ -1,0 +1,9 @@
+Estrutura de lista vs estrutura de árvore:
+    Orfganização linear vs não-linear
+    Propriedade de relação sequencial vs de relação hierárquica entre os elementos
+Estrtura de árvores representa melhor o relacionamento entre os dados, e esse relacionamento permite buscas otimizadas, uma vez que não é preciso percorrer a árvore inteira em busca de um dado, já que a relação entre eles permite uma consulta seletiva. (implica na possibilidade de unir a implementação encadeada com busca binária)
+
+Terminologia
+    Altura de um nó: o comprimento do caminho mais longo do nó até uma folha.
+    Altura da árvore: altura da raiz.
+    Profundidade de um nó: comprimento d caminho (único) entre o nó e a raiz.

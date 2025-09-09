@@ -1,0 +1,6 @@
+[submodule "alg1/projeto1/Caixeiro"]
+	path = alg1/projeto1/Caixeiro
+	url = git@github.com:Petroncini/Caixeiro.git
+[submodule "alg1/projeto2/Sets"]
+	path = alg1/projeto2/Sets
+	url = git@github.com:carol-akimi/Sets.git
