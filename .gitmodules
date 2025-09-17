@@ -7,3 +7,9 @@
 [submodule "fileorg/Arxival"]
 	path = fileorg/Arxival
 	url = git@github.com:Petroncini/Arxival.git
+[submodule "oop/JupiterScrape"]
+	path = oop/JupiterScrape
+	url = git@github.com:Petroncini/JupiterScrape.git
+[submodule "oop/runcodes/CoffeeTree"]
+	path = oop/runcodes/CoffeeTree
+	url = git@github.com:Petroncini/CoffeeTree.git

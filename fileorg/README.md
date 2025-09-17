@@ -1,4 +1,4 @@
-###Directory for the File Organization course
+### Directory for the File Organization course
 Includes the Arxival repository for the main project.
 
 Project description:
