@@ -1,0 +1,43 @@
+Início
+
+inteiro: x, i, s, temp, fat;
+i<-1;
+fat <-1;
+s<-0;
+leia (x);
+enquanto (i<=20) faça
+	se (i=1) então
+		início
+			fat <- fat*(2*i-1);
+			temp <- x;
+		fim;
+	senão
+		início
+			fat <- fat*(2*i-1)*(2*i-2);
+			temp <- pot(x,2*i-2)/fat;
+			se (i mod 2 = 0) então
+				temp <- temp*(-1);
+			fimse;
+		fim;
+	fimse;
+	s<-s+temp;
+
+Início
+    inteiro: p;
+    leia (p);
+    escolha p
+	caso 1: escreva("alimento nao perecivel");
+	caso 2, 3, 4: escreva("alimento perecivel");
+	caso 5, 6: escreva ("vestuario");
+	caso 7: escreva ("higiene pessoal");
+	caso 8, 9, 10, 11, 12, 13, 14, 15: escreva ("limpeza e utensilios domesticos");
+	caso contrario: escreva("invalido");
+    fimescolha;
+Fim
+
+calcule a soma dos 20 primeiros termos da série: S = X - (X^2/3!) + (X^4/5!) - (X^6/7!) + (X^8/9!) - ...
+
+
+
+
+
