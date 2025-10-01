@@ -16,3 +16,9 @@
 [submodule "Shepards"]
 	path = Shepards
 	url = git@github.com:Petroncini/Shepards.git
+[submodule "icc2/Ordenacao"]
+	path = icc2/Ordenacao
+	url = git@github.com:carol-akimi/Ordenacao.git
+[submodule "icc2/PROJICC2"]
+	path = icc2/PROJICC2
+	url = git@github.com:Petroncini/PROJICC2.git
