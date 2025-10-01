@@ -1,0 +1,48 @@
+import 
+
+classe Produto, produtos é ArrayList<Produto>
+
+// Imprime os nomes dos primeiros 2 produtos da lista que têm mais que cinco e são alimentos
+produtos // lista de produtos
+    .stream() // fluxo de produtos (suporta filter, map)
+    // inspeciona o que passa pela stream, que por ser lazy, só chama quando precisa
+    // .peek(p -> System.out.println("--9" + p.getNome()))
+    .filter(p -> p.getQuantidade() > 5)
+    .filter(p -> p.getTipoProduto() == TipoProduto.ALIMENTO)
+    .limit(2)
+    .map(p -> p.getNome()) // ou map(Produto::getNome)
+    // não funciona pq depois do map, os elementos são nomes, e não produtos que têm o método getNome()
+    // .peek(p -> System.out.println(p.getNome()))
+    .forEach(p -> System.out.println(p)); // execução começa no forEach e propaga pra trás
+    // .peek(p -> System.out.println("--17" + p.getNome())) // não roda porque o forEach consome a stream
+
+    //.sorted(Comparator.comparing(Produto::getQuantidade)) // ainda é lazy mas tem que encher o buffer com todos os elementos antes
+
+    // equivalente à linha 10
+    .filter(new Predicate<Produto>() { public boolean test(Produto p) {return p.getQuantidade > 5; }})
+
+class Stream<T> {
+
+    Stream<T> filter(Predicate<T> tester);
+
+    Stream<T> limit(int n);
+
+    interface Predicate<T> {
+        boolean test(T e);
+    }
+
+}
+
+interface UmaInterface {
+    int getInt();
+}
+
+class UmaClasse implements UmaInterface {
+    public int getInt() {
+        return 5;
+    }
+}
+
+void umaFuncao (UmaInterface e) {
+    int x = e.getInt();
+}
