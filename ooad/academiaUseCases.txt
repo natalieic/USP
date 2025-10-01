@@ -1,0 +1,23 @@
+@startuml
+
+:Administrador: as a
+:Professor: as p
+:Estudante: as e
+
+(Fazer login) as (login)
+
+a -> (Cadastrar novo estudante)
+a -> (Modificar cadastro de estudantes)
+a -> (Registrar professor responsável)
+a -> (Registrar horário e sala das disciplinas)
+
+p --> (login)
+p -> (Cadastrar critérios de avaliação\nde disciplinas)
+p -> (Cadastrar notas de disciplinas)
+
+e --> (login)
+e -> (Matricular em disciplinas)
+e -> (Consultar as disciplinas matriculadas)
+e -> (Visualizar as notas das disciplinas)
+
+@enduml

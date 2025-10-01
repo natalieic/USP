@@ -1,0 +1,19 @@
+@startuml
+
+:Administrador: as a
+:Funcionário: as f
+:Hóspede: as h
+
+f -> (Cadastrar hóspede)
+f -> (Alugar quarto na chegada)
+f -> (Registrar reserva de quarto)
+f -> (Registrar serviços adicionais)
+f -> (Gerar fatura)
+f -> (Registrar pagamento)
+
+h -> (Reservar quarto pela internet)
+h -> (Solicitar serviços)
+h -> (Quitar fatura semanalmente)
+h -> (Encerrar estadia)
+
+@enduml

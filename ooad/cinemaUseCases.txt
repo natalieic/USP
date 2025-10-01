@@ -1,0 +1,15 @@
+@startuml
+
+:Administrador: as a
+:Funcionário: as f
+:Cliente: as c
+
+a -> (Registrar sala)
+a -> (Cadastrar novo filme)
+a -> (Registrar sessões)
+
+f -> (Vender ingresso)
+
+c -> (Comprar ingresso)
+
+@enduml
