@@ -13,3 +13,6 @@
 [submodule "oop/runcodes/CoffeeTree"]
 	path = oop/runcodes/CoffeeTree
 	url = git@github.com:Petroncini/CoffeeTree.git
+[submodule "Shepards"]
+	path = Shepards
+	url = git@github.com:Petroncini/Shepards.git
