@@ -1,0 +1,51 @@
+@startuml
+
+' Atores
+:Administrador: as admin
+:Funcionário: as func
+
+' Casos de Uso do Administrador - Gerenciar Infraestrutura
+(Registrar sala) as registrarSala
+(Definir capacidade da sala) as definirCapacidade
+
+' Casos de Uso do Administrador - Gerenciar Filmes
+(Gerenciar filmes) as gerenciarFilmes
+(Cadastrar novo filme) as cadastrarFilme
+(Informar título e duração) as informarDados
+
+' Casos de Uso do Administrador - Gerenciar Sessões
+(Registrar sessões) as registrarSessao
+(Associar filme e sala) as associarFilmeSala
+(Definir horário) as definirHorario
+(Calcular total de ingressos) as calcularIngressos
+
+' Casos de Uso do Funcionário
+(Vender ingresso) as venderIngresso
+(Selecionar sessão) as selecionarSessao
+(Verificar disponibilidade) as verificarDisp
+
+' Relações de Herança entre Casos de Uso
+gerenciarFilmes <|-- cadastrarFilme
+venderIngresso <|-- (Vender meio ingresso)
+venderIngresso <|-- (Vender ingresso inteiro)
+
+' Relações <<include>>
+registrarSala ..> definirCapacidade : <<include>>
+cadastrarFilme ..> informarDados : <<include>>
+registrarSessao ..> associarFilmeSala : <<include>>
+venderIngresso ..> selecionarSessao : <<include>>
+venderIngresso ..> verificarDisp : <<include>>
+
+' Relações <<extend>>
+registrarSessao ..> definirHorario : <<include>>
+registrarSessao ..> calcularIngressos : <<include>>
+
+' Associações Ator -> Caso de Uso
+
+admin --> registrarSala
+admin --> gerenciarFilmes
+admin --> registrarSessao
+
+func --> venderIngresso
+
+@enduml

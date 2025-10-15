@@ -1,0 +1,64 @@
+@startuml
+
+' Hierarquia de Atores
+:Usuário: as u
+:Administrador: as admin
+:Professor: as prof
+:Estudante: as est
+
+admin -up-|> u
+prof -up-|> u
+est -up-|> u
+
+' Casos de Uso de Autenticação
+(Fazer Login) as login
+
+' Casos de Uso do Administrador - Gerenciar Estudantes
+(Gerenciar estudantes) as gerenciarEst
+(Cadastrar novo estudante) as cadastrarEst
+(Modificar cadastro de estudantes) as modificarEst
+
+' Casos de Uso do Administrador - Gerenciar Disciplinas
+(Gerenciar disciplinas) as gerenciarDisc
+(Registrar professor responsável) as registrarProf
+(Registrar horário e sala das disciplinas) as registrarHorario
+
+' Casos de Uso do Professor - Gerenciar Avaliações
+(Gerenciar avaliações) as gerenciarAval
+(Cadastrar critérios de avaliação\nde disciplinas) as cadastrarCriterios
+(Cadastrar notas de disciplinas) as cadastrarNotas
+
+' Casos de Uso do Estudante
+(Realizar matrícula em disciplinas) as matricular
+(Consultar disciplinas matriculadas) as consultarDisc
+(Visualizar notas das disciplinas) as visualizarNotas
+(Selecionar período letivo) as selecionarPeriodo
+
+' Relações de Herança entre Casos de Uso
+gerenciarEst <|-- cadastrarEst
+gerenciarEst <|-- modificarEst
+
+gerenciarDisc <|-- registrarProf
+gerenciarDisc <|-- registrarHorario
+
+gerenciarAval <|-- cadastrarCriterios
+gerenciarAval <|-- cadastrarNotas
+
+
+' Relações <<extend>>
+consultarDisc <.. selecionarPeriodo : <<extend>>
+visualizarNotas <.. selecionarPeriodo : <<extend>>
+cadastrarNotas <.. (Calcular as notas de disciplinas) : <<extend>>
+
+' Associações Ator -> Caso de Uso
+u -> login
+admin --> gerenciarEst
+admin --> gerenciarDisc
+
+prof --> gerenciarAval
+
+est --> matricular
+est --> consultarDisc
+est --> visualizarNotas
+
+@enduml

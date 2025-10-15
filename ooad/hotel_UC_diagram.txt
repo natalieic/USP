@@ -1,0 +1,72 @@
+@startuml
+
+' Atores
+:Funcionário da recepção: as func
+:Funcionário do hotel: as serv
+:Hóspede: as hosp
+
+(Gerenciar hóspedes) as gerenciarHosp
+(Cadastrar hóspede) as cadastrarHosp
+(Atualizar dados do hóspede) as atualizarHosp
+(Verificar se é primeira estadia) as verificarPrimeira
+(Realizar reserva) as reservar
+(Reserva na chegada) as reservaChegada
+(Reserva online) as reservaOnline
+
+(Verificar disponibilidade de quartos) as verificarDisp
+(Verificar dados cadastrais) as verificarDados
+
+' Casos de Uso - Gerenciar Serviços
+(Gerenciar serviços) as gerenciarServ
+(Registrar serviços na conta) as registrarServ
+(Registrar consumo do frigobar) as registrarFrigobar
+
+' Casos de Uso - Gerenciar Faturas
+(Gerenciar faturas) as gerenciarFat
+(Gerar fatura semanal) as gerarFatura
+(Consolidar diárias e serviços) as consolidarItens
+(Quitar fatura semanalmente) as quitarFatura
+(Registrar pagamento) as registrarPag
+(Encerrar estadia) as encerrarEstadia
+(Pagar serviços e diárias pendentes) as pagarPendentes
+
+' Relações de Herança entre Casos de Uso
+gerenciarHosp <|-- cadastrarHosp
+gerenciarHosp <|-- atualizarHosp
+
+
+gerenciarServ <|-- registrarServ
+gerenciarServ <|-- registrarFrigobar
+
+gerenciarFat <|-- gerarFatura
+gerenciarFat <|-- quitarFatura
+
+reservar <|-- reservaChegada
+reservar <|-- reservaOnline
+
+' Relações <<include>>
+reservar ..> verificarDados : <<include>>
+reservaChegada ..> verificarDisp : <<include>>
+verificarDados ..> verificarPrimeira : <<include>>
+gerarFatura ..> consolidarItens : <<include>>
+quitarFatura ..> (Quitar diárias) : <<include>>
+quitarFatura ..> (Quitar serviços) : <<include>>
+quitarFatura ..> (Quitar itens frigobar) : <<include>>
+encerrarEstadia ..> pagarPendentes : <<include>>
+
+' Relações <<extend>>
+verificarDados <.. cadastrarHosp : <<extend>>
+verificarDados <.. atualizarHosp : <<extend>>
+quitarFatura <.. encerrarEstadia : <<extend>>
+
+' Associações Ator -> Caso de Uso
+
+func --> gerenciarHosp
+serv --> gerenciarServ
+func --> gerenciarFat
+
+hosp --> reservar
+hosp --> quitarFatura
+hosp --> encerrarEstadia
+
+@enduml
