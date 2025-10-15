@@ -1,0 +1,4 @@
+java -jar plantuml-gplv2-1.2025.7.jar -tsvg <txt file>	# run plantuml
+rsvg-convert -o <output png file> <input svg file>	# convert svg to png (optional)
+xdg-open <png or svg file>				# open image file from terminal
+
